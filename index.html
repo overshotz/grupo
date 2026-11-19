@@ -53,8 +53,8 @@ fbq('track', 'PageView');
   --r:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--w);font-family:var(--fb);font-size:17px;line-height:1.5;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bg);color:var(--w);font-family:var(--fb);font-size:17px;line-height:1.5;overflow-x:clip}
 img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
@@ -63,7 +63,7 @@ a{color:inherit}
 .muted{color:var(--g)}
 
 /* ---------- texturas ---------- */
-.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:80;opacity:.09;mix-blend-mode:overlay;
+.grain{position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.09;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .dots{position:absolute;pointer-events:none;background-image:radial-gradient(rgba(252,241,1,.55) 1.1px,transparent 1.6px);background-size:14px 14px;
   -webkit-mask-image:radial-gradient(circle,#000 0,transparent 68%);mask-image:radial-gradient(circle,#000 0,transparent 68%);opacity:.35}
@@ -601,7 +601,8 @@ document.querySelectorAll(".js-cta").forEach(a=>{
     hint.style.opacity = enter>.9 ? 1-seg(p,.02,.1) : 0;
   }
   let raf=0;
-  addEventListener("scroll",()=>{ if(!raf) raf=requestAnimationFrame(()=>{raf=0;frame();}); },{passive:true});
+  addEventListener("scroll",frame,{passive:true});
+  addEventListener("touchmove",frame,{passive:true});
   addEventListener("resize",frame);
   addEventListener("load",frame);
   frame();
