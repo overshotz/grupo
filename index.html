@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OverShotz · Grupo VIP da Pré-venda</title>
+<meta name="description" content="Você pediu, a gente ouviu. Mais creatina, mais praticidade, sabor novo, e 30% off pra quem entrar no grupo.">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:title" content="OverShotz · Grupo VIP da Pré-venda">
+<meta property="og:description" content="Mais creatina, mais praticidade, sabor novo, e 30% off pra quem entrar no grupo.">
+
+<!-- ========================================================
+     PIXEL DA META / GTM — colar o código aqui quando tiver
+     ======================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* --------------------------------------------------------
+   FONTES DA MARCA
+   Títulos: Cold Warm · Textos: Bunken Tech Sans Pro
+   Quando chegarem os arquivos, descomentar e apontar o src.
+   Enquanto isso a página usa Chakra Petch e Barlow.
+   -------------------------------------------------------- */
+/*
+@font-face{font-family:"Cold Warm";src:url("fonts/ColdWarm.woff2") format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Bunken Tech Sans Pro";src:url("fonts/BunkenTechSansPro-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Bunken Tech Sans Pro";src:url("fonts/BunkenTechSansPro-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+*/
+
+:root{
+  --y:#FCF101; --bg:#0A0A0A; --bg2:#141414; --line:#262626;
+  --g:#A3A5A4; --w:#F4F4F2;
+  --mango:#FFB21E; --berry:#E8173F;
+  --ft:"Cold Warm","Chakra Petch",system-ui,sans-serif;
+  --fb:"Bunken Tech Sans Pro","Barlow",system-ui,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--w);font-family:var(--fb);font-size:17px;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.t{font-family:var(--ft);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+.y{color:var(--y)}
+.muted{color:var(--g)}
+
+/* ---------- texturas ---------- */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:80;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.dots{position:absolute;pointer-events:none;background-image:radial-gradient(rgba(252,241,1,.55) 1.1px,transparent 1.6px);background-size:14px 14px;
+  -webkit-mask-image:radial-gradient(circle,#000 0,transparent 68%);mask-image:radial-gradient(circle,#000 0,transparent 68%);opacity:.35}
+.gridtex{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 55%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 55%,#000 10%,transparent 70%)}
+.bigword{position:absolute;font-family:var(--ft);font-weight:700;text-transform:uppercase;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(252,241,1,.10);pointer-events:none;user-select:none;white-space:nowrap}
+
+/* ---------- botão ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--y);color:#000;text-decoration:none;
+  font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:clamp(16px,1.6vw,19px);letter-spacing:.03em;
+  padding:19px 30px;border-radius:999px;border:0;cursor:pointer;
+  transition:transform .15s}
+.hero .btn,.final .btn{animation:pulse 2.4s infinite}
+.final .btn{font-size:clamp(17px,1.8vw,21px);padding:21px 36px}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:22px;height:22px;flex:none}
+.vip .btn svg,.final .btn svg,.hero .btn svg{animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{0%,60%,100%{transform:scale(1)}10%{transform:scale(1.25) rotate(-8deg)}20%{transform:scale(.95)}30%{transform:scale(1.15) rotate(6deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(252,241,1,.5)}70%{box-shadow:0 0 0 18px rgba(252,241,1,0)}100%{box-shadow:0 0 0 0 rgba(252,241,1,0)}}
+.micro{font-size:14px;color:var(--g);margin-top:12px;letter-spacing:.02em}
+
+/* ---------- topo ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.top.on{background:rgba(10,10,10,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{height:20px;width:auto;color:var(--y)}
+.top .mini{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--g)}
+.top .mini b{color:var(--w);font-variant-numeric:tabular-nums;font-weight:600}
+.top .mini a{background:var(--y);color:#000;text-decoration:none;font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:13px;padding:9px 16px;border-radius:999px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:flex;align-items:center;padding:clamp(120px,15vh,160px) 0 clamp(56px,8vh,84px);overflow:hidden;text-align:center}
+.hero .dots{inset:0;background-size:16px 16px;opacity:.5;-webkit-mask-image:radial-gradient(ellipse 70% 75% at 50% 45%,#000 0,transparent 75%);mask-image:radial-gradient(ellipse 70% 75% at 50% 45%,#000 0,transparent 75%)}
+.hero::after{content:"";position:absolute;left:50%;top:44%;width:900px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(252,241,1,.10),transparent 65%);pointer-events:none}
+.hero-grid{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(252,241,1,.45);color:var(--y);border-radius:999px;
+  padding:7px 14px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--y);box-shadow:0 0 10px var(--y);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-size:clamp(46px,7.6vw,112px)}
+.hero h1 span{display:block}
+.hero .sub{font-size:clamp(18px,1.7vw,22px);margin:22px auto 30px;max-width:34ch;color:#dcdcdc}
+.hero .sub strong{color:var(--y);font-weight:700}
+
+.count{margin-top:38px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.count small{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--y);font-weight:600}
+.cd{display:flex;gap:10px}
+.cd div{background:var(--y);color:#000;border-radius:12px;min-width:84px;padding:12px 8px 9px;text-align:center;box-shadow:0 10px 30px rgba(252,241,1,.18)}
+.cd b{display:block;font-family:var(--ft);font-size:40px;line-height:1;color:#000;font-variant-numeric:tabular-nums}
+.cd span{font-size:11px;color:#000;opacity:.7;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.open-msg{display:none;font-family:var(--ft);font-weight:700;text-transform:uppercase;color:var(--y);font-size:22px}
+.is-open .cd{display:none}.is-open .open-msg{display:block}.is-open .count small{display:none}
+
+.stage{position:relative;aspect-ratio:1/1;width:100%;max-width:600px;justify-self:center}
+.stage .glow{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,rgba(252,241,1,.22),transparent 68%);filter:blur(14px)}
+.stage .dots{inset:0}
+.stage .s{position:absolute;width:78%;left:11%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.stage .s1{top:23%;transform:rotate(-11deg) translateX(-6%);animation:f1 6s ease-in-out infinite}
+.stage .s2{top:45%;transform:rotate(7deg) translateX(8%);animation:f2 6.5s ease-in-out infinite}
+@keyframes f1{50%{transform:rotate(-9deg) translate(-6%,-3%)}}
+@keyframes f2{50%{transform:rotate(9deg) translate(8%,3%)}}
+.stage .fr{position:absolute;filter:drop-shadow(0 16px 20px rgba(0,0,0,.5));animation:fl 7s ease-in-out infinite}
+.stage .fr:nth-of-type(odd){animation-duration:8s;animation-direction:reverse}
+@keyframes fl{50%{transform:translateY(-14px) rotate(6deg)}}
+
+/* ---------- faixa amarela ---------- */
+.band{background:var(--y);color:#000;overflow:hidden;position:relative;z-index:3;transform:rotate(-1.6deg);margin:0 -2vw;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.band .track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.band span{font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:clamp(17px,1.7vw,22px);letter-spacing:.04em;padding:15px 0;white-space:nowrap;display:flex;align-items:center}
+.band span i{display:inline-block;width:9px;height:9px;background:#000;transform:rotate(45deg);margin:0 22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- seções ---------- */
+section{position:relative}
+.sec{padding:clamp(64px,8vw,104px) 0}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--y);font-weight:600;margin-bottom:14px}
+.h2{font-size:clamp(36px,5.2vw,68px)}
+.lead{font-size:clamp(17px,1.5vw,20px);color:#d0d0d0;max-width:52ch;margin-top:18px}
+
+/* ---------- fórmula (animação no scroll) ---------- */
+.formula{height:280vh;background:linear-gradient(#0A0A0A,#070707 40%,#0A0A0A)}
+.f-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+.f-head{padding-top:clamp(84px,11vh,104px);text-align:center;position:relative;z-index:5;width:100%}
+.f-head .kicker{margin-bottom:10px}
+.eq{font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:clamp(22px,3.5vw,50px);line-height:1.1;letter-spacing:.01em}
+.eq span{opacity:.7;transition:opacity .35s,color .35s,text-shadow .35s}
+.eq span.lit{opacity:1;text-shadow:0 0 28px rgba(255,255,255,.18)}
+.eq .plus{color:var(--y);opacity:1}
+.eq .eqs{color:#000;background:var(--y);opacity:1;display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:.22em;vertical-align:-.12em;margin-left:.15em;transform:scale(1);transition:transform .3s;box-shadow:0 0 30px rgba(252,241,1,.35)}
+.f-stage{position:relative;flex:1;width:100%;max-width:1100px}
+.formula .gridtex{z-index:0}
+.f-stage::before{content:"";position:absolute;left:50%;top:50%;width:60vmin;height:60vmin;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(252,241,1,.12),transparent 65%);pointer-events:none}
+.el{position:absolute;left:50%;top:50%;width:var(--sz);margin:calc(var(--sz) / -2) 0 0 calc(var(--sz) / -2);will-change:transform,opacity}
+.el img{width:100%;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55))}
+.el .lb{position:absolute;left:50%;top:100%;transform:translate(-50%,6px);white-space:nowrap;text-align:center;color:var(--y);
+  font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:clamp(13px,1.35vw,17px);line-height:1.05}
+.el .lb em{display:block;font-style:normal;font-family:var(--fb);font-weight:600;color:#e6e6e6;text-transform:none;font-size:.78em;letter-spacing:.02em;margin-top:3px}
+.burst{position:absolute;left:50%;top:50%;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border-radius:50%;pointer-events:none;opacity:0;
+  background:radial-gradient(circle,#fff 0,rgba(252,241,1,.95) 12%,rgba(255,178,30,.55) 32%,rgba(232,23,63,.25) 52%,transparent 70%);mix-blend-mode:screen}
+.res{position:absolute;left:50%;top:50%;width:min(46vw,420px);will-change:transform,opacity;opacity:0}
+.res img{width:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.7))}
+.f-foot{position:absolute;left:0;right:0;bottom:clamp(26px,6vh,56px);text-align:center;opacity:0;z-index:6;padding:0 20px}
+.f-foot p{font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:clamp(22px,3vw,40px);line-height:1}
+.f-foot p span{color:var(--y)}
+.hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--g);display:flex;flex-direction:column;align-items:center;gap:8px}
+.hint i{width:1px;height:34px;background:linear-gradient(var(--y),transparent);animation:drop 1.6s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- números ---------- */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:34px 18px;text-align:center;border-right:1px solid var(--line)}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font-family:var(--ft);font-size:clamp(38px,5vw,64px);line-height:1;color:var(--y)}
+.nums span{font-size:15px;color:var(--g);text-transform:uppercase;letter-spacing:.1em}
+
+/* ---------- o que mudou ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;position:relative;overflow:hidden}
+.card .n{font-family:var(--ft);font-size:15px;color:var(--y);letter-spacing:.1em}
+.card h3{font-family:var(--ft);text-transform:uppercase;font-size:clamp(24px,2.3vw,30px);line-height:1;margin:16px 0 10px}
+.card p{color:#cfcfcf;font-size:16px}
+.card .big{display:none}
+.ba{display:flex;align-items:center;gap:10px;margin-top:14px;font-family:var(--ft);font-size:20px;text-transform:uppercase}
+.ba s{color:var(--g);text-decoration-thickness:2px}
+.ba svg{width:20px;color:var(--y)}
+
+/* ---------- vantagens do grupo ---------- */
+.vip{background:var(--y);color:#000;background-image:radial-gradient(rgba(0,0,0,.09) 1.2px,transparent 1.7px);background-size:12px 12px}
+.vip .kicker{color:#000;opacity:.7}
+.vip .lead{color:#1b1b1b}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.perk{background:#000;color:var(--w);border-radius:var(--r);padding:28px 22px}
+.perk b{display:block;font-family:var(--ft);text-transform:uppercase;font-size:clamp(30px,3.2vw,44px);line-height:.95;color:var(--y)}
+.perk p{margin-top:12px;font-size:16px;color:#d6d6d6}
+.vip .cta-row{margin-top:48px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.vip .btn{background:#000;color:var(--y);animation:pulseDark 2.4s infinite;font-size:clamp(17px,1.8vw,21px);padding:21px 36px}
+@keyframes pulseDark{0%{box-shadow:0 0 0 0 rgba(0,0,0,.45)}70%{box-shadow:0 0 0 18px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+.vip .micro{color:#2a2a2a}
+
+/* ---------- team mango x team berry ---------- */
+.teams{--acc:var(--mango)}
+.teams[data-t="berry"]{--acc:var(--berry)}
+.tabs{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:5px;margin-top:30px}
+.tabs button{appearance:none;border:0;background:transparent;color:var(--g);font-family:var(--ft);font-weight:700;text-transform:uppercase;font-size:16px;padding:12px 22px;border-radius:999px;cursor:pointer;transition:.25s}
+.tabs button[aria-selected="true"]{background:var(--acc);color:#000}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:40px}
+.team-vis{position:relative;aspect-ratio:5/4;border-radius:22px;overflow:hidden;
+  background:radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--acc) 38%,transparent),transparent 65%),var(--bg2);border:1px solid var(--line);transition:background .4s}
+.team-vis img{position:absolute;transition:opacity .45s,transform .45s}
+.team-vis .sx{width:76%;left:12%;top:30%;transform:rotate(-6deg)}
+.team-vis .fa{width:34%;left:-2%;top:2%}
+.team-vis .fb{width:30%;right:-1%;bottom:0%}
+.team-vis .fc{width:24%;right:6%;top:4%}
+.team-vis [data-for]{opacity:0;transform:scale(.92)}
+.teams[data-t="mango"] .team-vis [data-for="mango"],.teams[data-t="berry"] .team-vis [data-for="berry"]{opacity:1;transform:none}
+.teams[data-t="mango"] .team-vis .sx[data-for="mango"]{transform:rotate(-6deg)}
+.teams[data-t="berry"] .team-vis .sx[data-for="berry"]{transform:rotate(-6deg)}
+.team-txt [data-for]{display:none}
+.teams[data-t="mango"] .team-txt [data-for="mango"],.teams[data-t="berry"] .team-txt [data-for="berry"]{display:block}
+.team-txt h3{font-family:var(--ft);text-transform:uppercase;font-size:clamp(40px,5vw,66px);line-height:.92;color:var(--acc)}
+.team-txt .new{display:inline-block;background:var(--berry);color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:6px;margin-bottom:14px;text-transform:uppercase}
+.team-txt p{margin-top:16px;font-size:18px;color:#d5d5d5;max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;color:#e5e5e5}
+
+/* ---------- faq ---------- */
+.faq{max-width:820px;margin-top:40px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 40px 24px 0;position:relative;font-family:var(--ft);text-transform:uppercase;font-size:clamp(18px,1.8vw,22px);font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--y);font-size:30px;transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq p{padding:0 0 24px;color:#cfcfcf;max-width:62ch}
+
+/* ---------- final ---------- */
+.final{text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px 0 0 -450px;background:radial-gradient(circle,rgba(252,241,1,.10),transparent 60%);pointer-events:none}
+.final .h2{max-width:16ch;margin:0 auto}
+.final .lead{margin:18px auto 34px}
+.final .duo{display:flex;justify-content:center;margin:0 auto 34px;max-width:520px;position:relative}
+.final .duo img{width:60%;filter:drop-shadow(0 24px 30px rgba(0,0,0,.6))}
+.final .duo img:first-child{transform:rotate(-8deg) translateX(14%)}
+.final .duo img:last-child{transform:rotate(8deg) translateX(-14%) translateY(10%)}
+
+footer{border-top:1px solid var(--line);padding:46px 0 120px;font-size:13px;color:#8b8b8b}
+footer .wrap{display:flex;flex-direction:column;gap:16px}
+footer .logo{height:16px;color:var(--g)}
+
+/* ---------- barra fixa (celular) ---------- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:none;transform:translateY(140%);transition:transform .35s}
+.sticky-cta.on{transform:none}
+.sticky-cta .btn{width:100%;padding:17px 20px;animation:none;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+
+/* ---------- responsivo ---------- */
+@media (max-width:900px){
+  body{font-size:16px}
+  .hero{padding:110px 0 70px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:10px}
+  .hero-copy{order:1}.stage{order:2;max-width:430px;margin-top:6px}
+  .top .mini span{display:none}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .nums div:nth-child(2){border-right:0}
+  .nums div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .cards,.perks{grid-template-columns:1fr}
+  .perks{grid-template-columns:1fr 1fr}
+  .team{grid-template-columns:1fr;gap:26px}
+  .sticky-cta{display:block}
+  .top .mini a{display:none}
+  .formula{height:250vh}
+  .f-foot{bottom:104px}
+  .res{width:74vw}
+  .hero .bigword{font-size:60vw;top:auto;bottom:4%;transform:none}
+  .cd div{min-width:70px;padding:10px 6px 8px}.cd b{font-size:32px}
+}
+@media (max-width:520px){
+  .vip .btn,.final .btn{font-size:16px;padding:19px 22px;white-space:nowrap}
+  .perks{grid-template-columns:1fr}
+  .tabs button{font-size:14px;padding:11px 16px}
+}
+
+/* ---------- movimento reduzido ---------- */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .formula{height:auto}
+  .f-sticky{position:relative;height:auto;min-height:100vh}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ======== TOPO ======== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 760.55 97.56" aria-label="OverShotz" role="img"><path fill="currentColor" d="M114.18,97.56l-27.79-27.79V.28h27.79v58.11l6.95,6.95h6.95l6.95-7.1V.28h27.79v69.49l-27.79,27.79h-20.85Z"/><path fill="currentColor" d="M249.05.28v27.79h-48.64v6.95h36.76l-19.31,27.79h-17.45v6.95h48.64v27.79h-76.43V.28h76.43Z"/><path fill="currentColor" d="M286.64,76.71v20.85h-27.79V.28h62.54l13.9,13.9v41.69l-6.95,6.95,6.95,6.95v27.79h-27.79v-20.85h-20.85ZM286.64,28.07v20.85h20.85v-20.85h-20.85Z"/><path fill="currentColor" d="M408.93.11l13.89,13.89v13.89h-48.61v6.94h34.72l13.89,13.89v34.72l-13.89,13.89h-48.61l-13.89-13.89v-13.89h48.61v-6.94h-34.72l-13.89-13.89V14L360.32.11h48.61Z"/><path fill="currentColor" d="M460.38,62.61v34.72h-27.78V.11h27.78v34.72h20.83V.11h27.78v97.21h-27.78v-34.72h-20.83Z"/><path fill="currentColor" d="M674.38.11v27.78h-20.83v69.44h-27.78V27.89h-20.83V.11h69.44Z"/><path fill="currentColor" d="M684.17,27.89V.11h76.38v48.61l-13.89,13.89h-34.72v6.94h48.61v27.78h-76.38v-48.61l13.89-13.89h34.72v-6.94h-48.61Z"/><path fill="currentColor" d="M581.27.11h-48.61l-13.89,13.89v69.44l13.89,13.89h48.61l13.89-13.89V14L581.27.11ZM569.16,80.26l-9.07-19.42-21.95-7.52-.31-25.2,6.23-7.68,8.42,16.61,23.52,8.95.95,25.96-7.79,8.29Z"/><path fill="currentColor" d="M62.54,0H13.9L0,13.9v69.49l13.9,13.9h48.64l13.9-13.9V13.9L62.54,0ZM50.42,80.21l-9.08-19.43-21.96-7.53-.31-25.22,6.24-7.68,8.42,16.62,23.54,8.96.95,25.98-7.8,8.3Z"/></svg>
+    <div class="mini"><span>Pré-venda abre em</span><b class="js-mini">--</b><a href="#" class="js-cta">Entrar no grupo</a></div>
+  </div>
+</header>
+
+<main>
+
+<!-- ======== 1. HERO ======== -->
+<section class="hero">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="tag"><i></i>Pré-venda exclusiva do grupo VIP</div>
+      <h1 class="t"><span>Você pediu.</span><span class="y">A gente ouviu.</span></h1>
+      <p class="sub">Mais creatina, mais praticidade, sabor novo, e <strong>30% off</strong> pra quem entrar no grupo.</p>
+      <a href="#" class="btn js-cta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Quero entrar no grupo VIP</a>
+      <p class="micro">Grátis · só avisos do lançamento · sai quando quiser</p>
+
+      <div class="count js-count">
+        <small>A pré-venda do grupo abre em</small>
+        <div class="cd">
+          <div><b class="js-d">00</b><span>dias</span></div>
+          <div><b class="js-h">00</b><span>horas</span></div>
+          <div><b class="js-m">00</b><span>min</span></div>
+          <div><b class="js-s">00</b><span>seg</span></div>
+        </div>
+        <p class="open-msg">A pré-venda está aberta no grupo. Entra agora.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== FAIXA ======== -->
+<div class="band" aria-hidden="true"><div class="track"><span>Pré-venda 09/12<i></i></span><span>30% off<i></i></span><span>Brinde surpresa<i></i></span><span>Só no grupo VIP<i></i></span><span>Mango Rush<i></i></span><span>Berry Citrus<i></i></span><span>Ative o seu máximo<i></i></span><span>Pré-venda 09/12<i></i></span><span>30% off<i></i></span><span>Brinde surpresa<i></i></span><span>Só no grupo VIP<i></i></span><span>Mango Rush<i></i></span><span>Berry Citrus<i></i></span><span>Ative o seu máximo<i></i></span></div></div>
+
+<!-- ======== 2. A FÓRMULA (animação no scroll) ======== -->
+<section class="formula js-formula" aria-label="A fórmula OverShotz">
+  <div class="f-sticky">
+    <div class="gridtex" aria-hidden="true"></div>
+    <div class="f-head">
+      <p class="kicker">A fórmula do Shot</p>
+      <p class="eq">
+        <span data-i="0">Creatine</span> <span class="plus">+</span>
+        <span data-i="1">Caffeine</span> <span class="plus">+</span><br class="br-m">
+        <span data-i="2">Electrolytes</span> <span class="plus">+</span>
+        <span data-i="3">Fruit</span> <span class="eqs">=</span>
+      </p>
+    </div>
+
+    <div class="f-stage js-stage">
+      <div class="burst js-burst"></div>
+
+      <!-- pós -->
+      <div class="el" data-x="-.30" data-y="-.20" data-r="-10" data-g="0" style="--sz:clamp(110px,17vw,220px)">
+        <img src="img/creatina.webp" alt="Creatina"><div class="lb">5 g<em>creatina</em></div></div>
+      <div class="el" data-x=".31" data-y="-.22" data-r="12" data-g="1" style="--sz:clamp(110px,17vw,220px)">
+        <img src="img/cafeina.webp" alt="Cafeína"><div class="lb">200 mg<em>cafeína</em></div></div>
+      <div class="el" data-x="0" data-y=".02" data-r="0" data-g="2" style="--sz:clamp(110px,17vw,215px)">
+        <img src="img/eletrolitos.webp" alt="Eletrólitos"><div class="lb">+400 mg<em>eletrólitos</em></div></div>
+
+      <!-- frutas Mango Rush -->
+      <div class="el" data-x="-.38" data-y=".24" data-r="-18" data-g="3" style="--sz:clamp(84px,12vw,165px)"><img src="img/manga.webp" alt="Manga"></div>
+      <div class="el" data-x="-.17" data-y=".36" data-r="14" data-g="3" style="--sz:clamp(76px,10vw,140px)"><img src="img/maracuja.webp" alt="Maracujá"></div>
+
+      <!-- frutas Berry Citrus -->
+      <div class="el" data-x=".38" data-y=".24" data-r="16" data-g="3" style="--sz:clamp(84px,12vw,165px)"><img src="img/morango.webp" alt="Morango"></div>
+      <div class="el" data-x=".17" data-y=".36" data-r="-12" data-g="3" style="--sz:clamp(76px,10vw,140px)"><img src="img/framboesa.webp" alt="Framboesa"></div>
+
+      <!-- resultado: os 2 sachês -->
+      <div class="res js-r1" data-side="-1"><img src="img/sache-mango.webp" alt="OverShotz Mango Rush"></div>
+      <div class="res js-r2" data-side="1"><img src="img/sache-berry.webp" alt="OverShotz Berry Citrus"></div>
+    </div>
+
+    <div class="f-foot js-ffoot">
+      <p>Tudo que você precisa.<br><span>Em uma única dose.</span></p>
+    </div>
+    <div class="hint js-hint">Role<i></i></div>
+  </div>
+</section>
+
+<!-- ======== 3. EM CADA SHOT ======== -->
+<section>
+  <div class="wrap">
+    <div class="nums">
+      <div><b>5 g</b><span>creatina</span></div>
+      <div><b>200 mg</b><span>cafeína</span></div>
+      <div><b>+400 mg</b><span>eletrólitos</span></div>
+      <div><b>0 g</b><span>açúcar</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 4. O QUE MUDOU ======== -->
+<section class="sec">
+  <div class="wrap">
+    <p class="kicker">OverShotz 2.0</p>
+    <h2 class="t h2">Nós ouvimos <span class="y">vocês.</span></h2>
+    <p class="lead">A fórmula evoluiu com base no que vocês pediram. Mais completa, mais prática e mais saborosa.</p>
+    <div class="cards">
+      <article class="card"><span class="n">01</span><h3>Mais creatina</h3><p>Mais creatina em cada dose.</p>
+        <div class="ba"><s>3 g</s><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="y">5 g</span></div><span class="big">5G</span></article>
+      <article class="card"><span class="n">02</span><h3>Mais praticidade</h3><p>Pegou. Misturou. Tomou. Leva na mochila, no bolso, pra onde for.</p>
+        <div class="ba"><s>Pote</s><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="y">Sachê</span></div><span class="big">1</span></article>
+      <article class="card"><span class="n">03</span><h3>Sabor novo</h3><p>Chegou o Berry Citrus pra fazer dupla com o Mango Rush.</p>
+        <div class="ba"><span class="y">+ Berry Citrus</span></div><span class="big">+1</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 5. O QUE VOCÊ GANHA NO GRUPO ======== -->
+<section class="sec vip">
+  <div class="wrap">
+    <p class="kicker">Só pra quem está no grupo</p>
+    <h2 class="t h2">O que você ganha<br>entrando agora</h2>
+    <div class="perks">
+      <div class="perk"><b>30% off</b><p>Na pré-venda, com o link exclusivo enviado no grupo.</p></div>
+      <div class="perk"><b>Brinde surpresa</b><p>Vai junto no seu pedido da pré-venda.</p></div>
+      <div class="perk"><b>Compra antes</b><p>Dia 09/12 o grupo compra primeiro, antes de abrir pra todo mundo.</p></div>
+      <div class="perk"><b>Sabor novo primeiro</b><p>Seja um dos primeiros a provar o Berry Citrus.</p></div>
+    </div>
+    <div class="cta-row">
+      <a href="#" class="btn js-cta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Quero entrar no grupo VIP</a>
+      <p class="micro">Grátis · só avisos do lançamento · sai quando quiser</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 6. TEAM MANGO x TEAM BERRY ======== -->
+<section class="sec teams js-teams" data-t="mango">
+  <div class="wrap">
+    <p class="kicker">Escolha seu lado</p>
+    <h2 class="t h2">Team Mango <span class="y">x</span> Team Berry</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="mango">Mango Rush</button>
+      <button role="tab" aria-selected="false" data-t="berry">Berry Citrus</button>
+    </div>
+    <div class="team">
+      <div class="team-vis" aria-hidden="true">
+        <div class="dots" style="inset:0"></div>
+        <img class="fb" data-for="mango" src="img/manga.webp" alt="">
+        <img class="fb" data-for="berry" src="img/morango.webp" alt="">
+        <img class="sx" data-for="mango" src="img/sache-mango.webp" alt="">
+        <img class="sx" data-for="berry" src="img/sache-berry.webp" alt="">
+      </div>
+      <div class="team-txt">
+        <div data-for="mango">
+          <h3>Mango<br>Rush</h3>
+          <p>Tropical, vibrante e refrescante. Manga e maracujá com um toque de limão-siciliano.</p>
+          <div class="chips"><span>Manga</span><span>Maracujá</span><span>Limão-siciliano</span><span>Zero açúcar</span></div>
+        </div>
+        <div data-for="berry">
+          <span class="new">Novo</span>
+          <h3>Berry<br>Citrus</h3>
+          <p>Frutado, cítrico e refrescante. Frutas vermelhas com limão.</p>
+          <div class="chips"><span>Morango</span><span>Framboesa</span><span>Amora</span><span>Mirtilo</span><span>Limão</span><span>Zero açúcar</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 7. PERGUNTAS ======== -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">Dúvidas</p>
+    <h2 class="t h2">Antes de entrar</h2>
+    <div class="faq">
+      <details><summary>Entrar no grupo custa alguma coisa?</summary><p>Não. Entrar é grátis, não obriga a compra e você sai quando quiser.</p></details>
+      <details><summary>Quando abre a pré-venda?</summary><p>Dia 09/12, à meia-noite, só pra quem está no grupo.</p></details>
+      <details><summary>Como eu pego os 30% off?</summary><p>Na abertura da pré-venda, o link com o desconto é enviado no grupo. É só entrar e comprar por ele.</p></details>
+      <details><summary>Qual é o brinde?</summary><p>É surpresa. Ele vai junto no seu pedido da pré-venda.</p></details>
+      <details><summary>Vou receber mensagem demais?</summary><p>Não. O grupo é só pra avisos do lançamento e da pré-venda.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 8. CTA FINAL ======== -->
+<section class="sec final">
+  <div class="wrap" style="position:relative">
+    <div class="duo" aria-hidden="true"><img src="img/sache-mango.webp" alt=""><img src="img/sache-berry.webp" alt=""></div>
+    <h2 class="t h2">Ative o seu <span class="y">máximo.</span></h2>
+    <p class="lead">Entre no grupo e garanta 30% off + brinde surpresa na pré-venda de 09/12.</p>
+    <a href="#" class="btn js-cta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Quero entrar no grupo VIP</a>
+    <p class="micro">Grátis · só avisos do lançamento · sai quando quiser</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 760.55 97.56" aria-label="OverShotz" role="img"><path fill="currentColor" d="M114.18,97.56l-27.79-27.79V.28h27.79v58.11l6.95,6.95h6.95l6.95-7.1V.28h27.79v69.49l-27.79,27.79h-20.85Z"/><path fill="currentColor" d="M249.05.28v27.79h-48.64v6.95h36.76l-19.31,27.79h-17.45v6.95h48.64v27.79h-76.43V.28h76.43Z"/><path fill="currentColor" d="M286.64,76.71v20.85h-27.79V.28h62.54l13.9,13.9v41.69l-6.95,6.95,6.95,6.95v27.79h-27.79v-20.85h-20.85ZM286.64,28.07v20.85h20.85v-20.85h-20.85Z"/><path fill="currentColor" d="M408.93.11l13.89,13.89v13.89h-48.61v6.94h34.72l13.89,13.89v34.72l-13.89,13.89h-48.61l-13.89-13.89v-13.89h48.61v-6.94h-34.72l-13.89-13.89V14L360.32.11h48.61Z"/><path fill="currentColor" d="M460.38,62.61v34.72h-27.78V.11h27.78v34.72h20.83V.11h27.78v97.21h-27.78v-34.72h-20.83Z"/><path fill="currentColor" d="M674.38.11v27.78h-20.83v69.44h-27.78V27.89h-20.83V.11h69.44Z"/><path fill="currentColor" d="M684.17,27.89V.11h76.38v48.61l-13.89,13.89h-34.72v6.94h48.61v27.78h-76.38v-48.61l13.89-13.89h34.72v-6.94h-48.61Z"/><path fill="currentColor" d="M581.27.11h-48.61l-13.89,13.89v69.44l13.89,13.89h48.61l13.89-13.89V14L581.27.11ZM569.16,80.26l-9.07-19.42-21.95-7.52-.31-25.2,6.23-7.68,8.42,16.61,23.52,8.95.95,25.96-7.79,8.29Z"/><path fill="currentColor" d="M62.54,0H13.9L0,13.9v69.49l13.9,13.9h48.64l13.9-13.9V13.9L62.54,0ZM50.42,80.21l-9.08-19.43-21.96-7.53-.31-25.22,6.24-7.68,8.42,16.62,23.54,8.96.95,25.98-7.8,8.3Z"/></svg>
+    <p>Suplemento alimentar. Uso adulto, a partir de 19 anos. Não indicado para gestantes, lactantes e crianças.</p>
+    <p>CNPJ 61.836.245/0001-48</p>
+    <p>© 2026 OverShotz. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta js-sticky"><a href="#" class="btn js-cta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Entrar no grupo VIP</a></div>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO — trocar aqui
+   ============================================================ */
+const LINK_DO_GRUPO = "https://chat.whatsapp.com/BSRjGaXcHct3yShGtwhjev?s=cl&p=i&iam=2";                                   // link do grupo no WhatsApp
+const ABERTURA      = new Date("2026-12-09T00:00:00-03:00"); // abertura da pré-venda no grupo
+
+/* links dos botões + evento de lead no pixel */
+document.querySelectorAll(".js-cta").forEach(a=>{
+  a.href = LINK_DO_GRUPO;
+  if (LINK_DO_GRUPO !== "#") { a.target = "_blank"; a.rel = "noopener"; }
+  a.addEventListener("click",()=>{ try{ if(window.fbq) fbq("track","Lead"); if(window.dataLayer) dataLayer.push({event:"entrar_grupo"}); }catch(e){} });
+});
+
+/* contador */
+(function(){
+  const box=document.querySelector(".js-count"), mini=document.querySelector(".js-mini");
+  const D=document.querySelector(".js-d"),H=document.querySelector(".js-h"),M=document.querySelector(".js-m"),S=document.querySelector(".js-s");
+  const pad=n=>String(n).padStart(2,"0");
+  function tick(){
+    let ms=ABERTURA-Date.now();
+    if(ms<=0){ box.classList.add("is-open"); mini.textContent="aberta"; mini.previousElementSibling.textContent="Pré-venda"; return; }
+    const d=Math.floor(ms/864e5), h=Math.floor(ms/36e5)%24, m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
+    D.textContent=pad(d);H.textContent=pad(h);M.textContent=pad(m);S.textContent=pad(s);
+    mini.textContent=`${d}d ${pad(h)}h ${pad(m)}m`;
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+
+/* topo e barra fixa */
+(function(){
+  const top=document.getElementById("top"), st=document.querySelector(".js-sticky"), hero=document.querySelector(".hero");
+  function on(){ const y=scrollY; top.classList.toggle("on",y>30); st.classList.toggle("on",y>hero.offsetHeight*.7); }
+  addEventListener("scroll",on,{passive:true}); on();
+})();
+
+/* team mango x team berry */
+(function(){
+  const sec=document.querySelector(".js-teams");
+  sec.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+    sec.dataset.t=b.dataset.t;
+    sec.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  }));
+})();
+
+/* animação da fórmula no scroll */
+(function(){
+  const sec=document.querySelector(".js-formula"), stage=document.querySelector(".js-stage");
+  const els=[...stage.querySelectorAll(".el")], words=[...document.querySelectorAll(".eq span[data-i]")];
+  const burst=document.querySelector(".js-burst"), r1=document.querySelector(".js-r1"), r2=document.querySelector(".js-r2");
+  const foot=document.querySelector(".js-ffoot"), hint=document.querySelector(".js-hint"), eqs=document.querySelector(".eqs");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const seg=(p,a,b)=>cl((p-a)/(b-a));
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  const out=t=>1-Math.pow(1-t,3);
+
+  function frame(){
+    const r=sec.getBoundingClientRect(), vh=innerHeight;
+    let p= reduce ? 1 : cl(-r.top/(r.height-vh));
+    const enter = reduce ? 1 : cl(1 - r.top/(vh*.9));
+    const W=stage.clientWidth, Hh=stage.clientHeight, mob=W<700;
+
+    /* palavras acendem conforme os elementos entram */
+    words.forEach((w,i)=>w.classList.toggle("lit", enter > .3+i*.08 || p>.02));
+    eqs.style.transform=`scale(${1+ .35*Math.sin(Math.PI*seg(p,.5,.7))})`;
+
+    /* entrada (0–.2) e junção no centro (.28–.62) */
+    els.forEach((el,i)=>{
+      const x=parseFloat(el.dataset.x), y=parseFloat(el.dataset.y), rot=parseFloat(el.dataset.r), g=+el.dataset.g;
+      const sx = x*W*(mob?.82:1), sy = y*Hh*(mob?.82:1);
+      const tin = out(seg(enter, .25+g*.12, .7+g*.1));
+      const tj  = ease(seg(p, .18+(i%3)*.02, .55));
+      const px = sx*(1+.25*(1-tin)) * (1-tj);
+      const py = sy*(1+.25*(1-tin)) * (1-tj);
+      const sc = (.7+.3*tin) * (1-.75*tj);
+      const rr = rot*(1-tj) + tj*(i%2?220:-220);
+      el.style.transform=`translate3d(${px}px,${py}px,0) rotate(${rr}deg) scale(${sc})`;
+      el.style.opacity = tin * (1-seg(p,.51,.6));
+      const lb=el.querySelector(".lb"); if(lb) lb.style.opacity = 1-seg(p,.16,.28);
+    });
+
+    /* explosão de luz */
+    const b=seg(p,.5,.72);
+    burst.style.opacity = Math.sin(Math.PI*b);
+    burst.style.transform = `scale(${.2+1.4*out(b)})`;
+
+    /* resultado: os 2 sachês */
+    const t=out(seg(p,.56,.8));
+    [r1,r2].forEach(el=>{
+      const s=+el.dataset.side, w=el.offsetWidth, h=el.offsetHeight;
+      const dx = s*(mob? 0 : W*.2)*t, dy = (mob? s*Hh*.17 : 0)*t - (mob?Hh*.05:0)*t;
+      const rot = s*(mob?5:8)*t + (1-t)*s*-30;
+      el.style.transform=`translate3d(${-w/2+dx}px,${-h/2+dy}px,0) rotate(${rot}deg) scale(${.35+.65*t})`;
+      el.style.opacity = cl(t*1.6);
+    });
+
+    foot.style.opacity = seg(p,.78,.92);
+    foot.style.transform=`translateY(${(1-seg(p,.78,.92))*20}px)`;
+    hint.style.opacity = enter>.9 ? 1-seg(p,.02,.1) : 0;
+  }
+  let raf=0;
+  addEventListener("scroll",()=>{ if(!raf) raf=requestAnimationFrame(()=>{raf=0;frame();}); },{passive:true});
+  addEventListener("resize",frame);
+  addEventListener("load",frame);
+  frame();
+})();
+</script>
+</body>
+</html>
