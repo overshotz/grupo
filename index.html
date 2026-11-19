@@ -9,9 +9,21 @@
 <meta property="og:title" content="OverShotz · Grupo VIP da Pré-venda">
 <meta property="og:description" content="Mais creatina, mais praticidade, sabor novo, e 30% off pra quem entrar no grupo.">
 
-<!-- ========================================================
-     PIXEL DA META / GTM — colar o código aqui quando tiver
-     ======================================================== -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1002705989178676');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1002705989178676&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -266,7 +278,8 @@ footer .logo{height:16px;color:var(--g)}
   .cd div{min-width:70px;padding:10px 6px 8px}.cd b{font-size:32px}
 }
 @media (max-width:520px){
-  .vip .btn,.final .btn{font-size:16px;padding:19px 22px;white-space:nowrap}
+  .btn{white-space:nowrap}
+  .hero .btn,.vip .btn,.final .btn{font-size:15px;padding:19px 20px;letter-spacing:.01em}
   .perks{grid-template-columns:1fr}
   .tabs button{font-size:14px;padding:11px 16px}
 }
