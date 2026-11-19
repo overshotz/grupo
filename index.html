@@ -289,8 +289,6 @@ footer .logo{height:16px;color:var(--g)}
 /* ---------- movimento reduzido ---------- */
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .formula{height:auto}
-  .f-sticky{position:relative;height:auto;min-height:100vh}
 }
 </style>
 </head>
@@ -552,7 +550,7 @@ document.querySelectorAll(".js-cta").forEach(a=>{
   const els=[...stage.querySelectorAll(".el")], words=[...document.querySelectorAll(".eq span[data-i]")];
   const burst=document.querySelector(".js-burst"), r1=document.querySelector(".js-r1"), r2=document.querySelector(".js-r2");
   const foot=document.querySelector(".js-ffoot"), hint=document.querySelector(".js-hint"), eqs=document.querySelector(".eqs");
-  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduce=false; /* animação acompanha o scroll do usuário: roda mesmo com "reduzir movimento" */
   const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
   const seg=(p,a,b)=>cl((p-a)/(b-a));
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
